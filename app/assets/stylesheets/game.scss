@@ -12,8 +12,11 @@
     cursor: pointer;
     position: relative;
 
-    &.x, &.o {
+    &.checked {
       cursor: default;
+    }
+
+    &.x, &.o {
       &:after {
         position: absolute;
         left: 50%;

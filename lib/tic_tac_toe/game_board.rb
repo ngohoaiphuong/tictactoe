@@ -13,12 +13,4 @@ class GameBoard
       nil
     end
   end
-
-  def remaining_indices
-    board.each_index.select { |ind| board[ind] == '-' }
-  end
-
-  def remaining_indices_count
-    remaining_indices.count
-  end
 end

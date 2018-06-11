@@ -17,6 +17,7 @@
 //= require i18n/translations
 //= require lodash
 //= require toastr
+//= require js-routes
 //= require_tree .
 
 $(document).ready(function() {
