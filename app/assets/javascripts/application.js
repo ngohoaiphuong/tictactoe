@@ -21,4 +21,5 @@
 
 $(document).ready(function() {
   ModalSystem.initialize();
+  gameCore.initialize();
 });
