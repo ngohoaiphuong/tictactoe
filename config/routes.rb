@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'game#show'
+  root to: 'game#new'
 
   mount ActionCable.server => '/cable'
 

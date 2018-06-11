@@ -1,15 +1,35 @@
 class GameController < ApplicationController
+  respond_to :html, :json
+
   def show
-    # GameConfig::GAME.reset_board(GameConfig::GAME.size_board)
-    Gon.global.size_board = GameConfig::GAME.size_board
+    GameConfig::GAME.reset_board(Gon.global.size_board)
     Gon.global.current_turn = GameConfig::GAME.current_turn
   end
 
   def new
-    GameConfig::GAME.reset_board(4)
+    Gon.global.size_board = GameConfig::GAME.size_board
     Gon.global.current_turn = GameConfig::GAME.current_turn
-    p GameConfig::GAME
-    redirect_to root_path
+  end
+
+  def create
+    @error = {}
+    @error[:player1] = 'missing' unless params[:anything][:player1].present?
+    @error[:player2] = 'missing' unless params[:anything][:player2].present?
+    @error[:size_board] = {}
+    @error[:size_board][:missing] = 'missing' unless params[:anything][:size_board].present?
+
+    if params[:anything][:size_board].present? && params[:anything][:size_board][/\d/].nil?
+      @error[:size_board][:format] = 'wrong'
+    end
+
+    @error.except!(:size_board) if @error[:size_board].blank?
+    return render :new if @error.present?
+
+    Gon.global.size_board = params[:anything][:size_board].to_i
+    Gon.global.player1 = params[:anything][:player1]
+    Gon.global.player2 = params[:anything][:player2]
+
+    redirect_to game_path(0)
   end
 
   def update_game_board

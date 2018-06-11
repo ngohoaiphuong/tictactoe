@@ -1,0 +1,21 @@
+.new-game data-theme='theme01' style=calculate_board_height
+  .form
+    = form_for :anything, url: game_index_path do |form|
+      .player1
+        = form.label I18n.t('form.player1')
+        = form.text_field :player1, autofocus: true
+        - if @error[:player1].present?
+          = form.label I18n.t('form.missing'), id: "player1-error"
+      .player2
+        = form.label I18n.t('form.player2')
+        = form.text_field :player2
+        - if @error[:player2].present?
+          = form.label I18n.t('form.missing'), id: "player2-error"
+      .size_board
+        = form.label I18n.t('form.size_board')
+        = form.text_field :size_board, as: :number
+        - if @error[:size_board] && @error[:size_board][:missing].present?
+          = form.label I18n.t('form.missing'), id: "size-board-error"
+        - if @error[:size_board] && @error[:size_board][:format].present?
+          = form.label I18n.t('form.wrong_format'), id: "size-board-error"
+      = form.submit I18n.t('form.submit')

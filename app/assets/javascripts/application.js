@@ -21,6 +21,5 @@
 //= require_tree .
 
 $(document).ready(function() {
-  ModalSystem.initialize();
   gameCore.initialize();
 });

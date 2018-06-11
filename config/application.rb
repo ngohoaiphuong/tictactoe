@@ -9,8 +9,6 @@ Bundler.require(*Rails.groups)
 module SugarTictactoe
   class Application < Rails::Application
     # Use the responders controller from the responders gem
-    config.app_generators.scaffold_controller :responders_controller
-    config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     config.i18n.default_locale = :en

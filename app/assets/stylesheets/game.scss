@@ -42,3 +42,61 @@
     }
   }
 }
+
+.new-game {
+  position: absolute;
+  width: $widthForm;
+  top: 0;
+  left: 50%;
+  margin-left: (-$widthForm/2);
+  z-index: 100;
+  // opacity: 0.8;
+  padding: 50px;
+
+  .form {
+    margin: auto;
+    width: 300px;
+    .player1, .player2, .size_board {
+      label {
+        display: inherit;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input {
+        height: 30px;
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+      margin-bottom: 10px;
+    }
+
+    .size_board {
+      label {
+        display: inline-block;
+        width: 25%;
+      }
+      input {
+        width: 70%;
+      }
+    }
+
+    input[type='submit'] {
+      width: 150px;
+      height: 40px;
+      border-radius: 10px;
+      margin-left: 70px;
+      cursor: pointer;
+    }
+
+    input {
+      padding: 5px;
+      font-size: 20px;
+    }
+
+    #player1-error, #player2-error, #size-board-error {
+      width: 100%;
+      color: red;
+    }
+  }
+}

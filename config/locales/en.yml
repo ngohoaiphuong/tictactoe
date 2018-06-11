@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+  app:
+    title: "Tic Tac Toe"
+  form:
+    player1: "Player 1"
+    player2: "Player 2"
+    size_board: "Size board"
+    submit: "New Game"
+    missing: "Missing information"
+    wrong_format: "Please put a number"

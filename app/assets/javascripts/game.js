@@ -4,6 +4,16 @@ var gameCore = (function($) {
     $.post(Routes.game_update_game_board_path(id), function(data){
       gon.global.current_turn = data.next_turn;
       $('#row-' + id).addClass(current_turn).addClass('checked');
+      if (data.win) {
+        alert('Player ' + data.previous_turn === 'x' ? gon.global.player1 : gon.global.player2 + ' won!!');
+        window.location.href = Routes.new_game_path();
+        return;
+      }
+
+      if($('.cell.checked').length == gon.global.size_board*gon.global.size_board) {
+        alert('Player ' + gon.global.player1 + ' draw ' + gon.global.player2);
+        window.location.href = Routes.new_game_path();
+      }
     });
   }
 
