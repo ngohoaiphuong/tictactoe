@@ -1,0 +1,41 @@
+@import "variables";
+@import "board-theme";
+
+.main-board {
+  margin: auto;
+  padding: 10px;
+  .cell {
+    width: $cellWidth;
+    height: $cellWidth;
+    display: inline-block;
+    margin: 0 2.5px 0 2.5px;
+    cursor: pointer;
+    position: relative;
+
+    &.x, &.o {
+      cursor: default;
+      &:after {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 50px;
+        margin-left: -16px;
+        margin-top: -25px;
+      }
+    }
+
+    &.x {
+      color: #000;
+      &:after {
+        content: 'X';
+      }
+    }
+
+    &.o {
+      color: #e3085d;
+      &:after {
+        content: 'O';
+      }
+    }
+  }
+}
